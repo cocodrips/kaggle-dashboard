@@ -2,4 +2,82 @@
 {% block title %}Dashboard{% endblock %}
 {% block body %}
 
+
+  <h2 class="my-4">
+    Summary
+  </h2>
+
+  <div class="row border-bottom">
+    <div class="col-sm-3">
+      name
+
+    </div>
+    <div class="col-sm-2">
+      timestamp
+    </div>
+
+    <div class="col-sm-2">
+      score
+    </div>
+
+    <div class="col-sm-1">
+      runtime
+    </div>
+
+    <div class="col-sm-1">
+      data
+    </div>
+
+    <div class="col-sm-1">
+      random
+    </div>
+    <div class="col-sm-1">
+      feature
+    </div>
+
+    <div class="col-sm-1">
+submit
+    </div>
+
+  </div>
+  {% for recipe in recipes %}
+
+
+    <div class="row border-bottom">
+      <div class="col-sm-3">
+        <a href="/job/{{ recipe.filepath }}">
+          {{ recipe.name }}
+        </a>
+
+      </div>
+      <div class="col-sm-2">
+        {{ recipe.time }}
+      </div>
+
+      <div class="col-sm-2">
+        <p class="text-danger">{{ recipe.score }}</p>
+      </div>
+
+      <div class="col-sm-1">
+        {{ recipe.running_time }} sec
+      </div>
+
+      <div class="col-sm-1">
+        {{ recipe.training_rate * 100 }} %
+      </div>
+
+      <div class="col-sm-1">
+        {{ recipe.random_state }}
+      </div>
+
+      <div class="col-sm-1">
+        {{ recipe.features | length }}
+      </div>
+
+      <div class="col-sm-1">
+        {{ recipe.submit_score }}
+      </div>
+
+    </div>
+  {% endfor %}
 {% endblock %}

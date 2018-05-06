@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+
+
+  <h2 class="my-4">
+    Summary
+  </h2>
+
+  <div class="col-sm-12">
+    <dl class="row card-dl">
+      <dt class="col-sm-3">name</dt>
+      <dd class="col-sm-9">{{ recipe.name }} </dd>
+    </dl>
+
+    <dl class="row card-dl">
+      <dt class="col-sm-3">importance</dt>
+      <dd class="col-sm-9">
+        
+        <img src="/static/importance/{{ recipe.name }}" alt="">
+        
+      </dd>
+    </dl>
+  
+    <dl class="row card-dl">
+      <dt class="col-sm-3">feature</dt>
+      <dd class="col-sm-9">
+      
+        <ul>
+          {% for feature in recipe.features %}
+            {% if feature in recipe.categorical_features %}
+              <p class="text-primary">{{ feature }}</p>
+            {% else %}
+              <p>{{ feature }}</p>
+            {% endif %}
+
+          {% endfor %}
+        </ul>
+
+      </dd>
+    </dl>
+
+  </div>
+{% endblock %}
