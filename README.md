@@ -1,5 +1,7 @@
 ## Setup
 
 ```sh
-$ cp config_template.py config.py
+$ cp setting_template.sh setting.sh
+$ emacs setting.sh 
+$ ./setting.sh
 ```
